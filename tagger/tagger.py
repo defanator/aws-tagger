@@ -99,6 +99,9 @@ class SingleResourceTagger(object):
         elif resource_id.startswith('snap-'):
             tagger = self.taggers['ec2']
             resource_arn = resource_id
+        elif resource_id.startswith('vpc-'):
+            tagger = self.taggers['ec2']
+            resource_arn = resource_id
 
         if tagger:
             tagger.tag(resource_arn, tags)
